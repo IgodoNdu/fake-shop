@@ -4,7 +4,9 @@ import { combineReducers } from "redux"; //from the redux core
 //import the reducers you created
 import { productReducer } from "./productReducer";
 
-const reducers = combineReducers ({
+export const reducers = combineReducers ({
     //just for now
     allProducts: productReducer,
 });
+
+//export default reducers;
