@@ -9,7 +9,7 @@ const initialState = {
             category: 'Men',
         },
     ]
-}
+};
 
 //create the reducer for the product
 export const productReducer = (state=initialState, { type, payload }) => {
