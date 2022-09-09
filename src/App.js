@@ -1,6 +1,6 @@
 import './App.css';
 // Routing
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Header from './containers/Header';
 import ProductListing from "./containers/ProductListing";
@@ -11,11 +11,11 @@ function App() {
     <div className="App">
       <Router>
         <Header />
-        <>
-          <Route path="/" exact component={ProductListing} />
-          <Route path="/product/:productId" exact component={ProductDetail} />
+        <Routes>
+          <Route path="/" element={<ProductListing />} />
+          <Route path="/product/:productId" element={<ProductDetail />} />
           <Route>404 Not Found!</Route>
-        </>
+        </Routes>
       </Router>
     </div>
   );
