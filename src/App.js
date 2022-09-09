@@ -1,9 +1,10 @@
 import './App.css';
+import Header from './containers/Header';
 
 function App() {
   return (
     <div className="App">
-      <h3>Hello Fake Shop</h3>
+      <Header />
     </div>
   );
 }
