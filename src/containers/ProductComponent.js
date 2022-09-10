@@ -1,4 +1,6 @@
 // Create the Product Component
+//import a link tag to take to the individual product page
+import { Link } from "react-router-dom";
 // Also display the store constituents (products)
 import { useSelector } from "react-redux"; //A hook to access the redux store state
 
@@ -12,6 +14,7 @@ const ProductComponent = () => {
         const { id, title, image, price, category } = product;
         return (
             <div className="four column wide" key={id}>
+                <Link to={`./product/${id}`}>
                 <div className="ui link cards">
                     <div className="card">
                         <div className="image">
@@ -24,6 +27,7 @@ const ProductComponent = () => {
                         </div>
                     </div>
                 </div>
+                </Link>
             </div>
         );
     });
