@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 //import for dispatch action
 import { useDispatch, useSelector } from "react-redux";
 //import appropriate action for this use-case
-import { selectedProduct } from "../redux/actions/productActions";
+import { selectedProduct, removeSelectedProduct } from "../redux/actions/productActions";
 
 const ProductDetail = () => {
     const { productId } = useParams();
@@ -33,6 +33,9 @@ const ProductDetail = () => {
     //Call the fetchProductDetail, & we want the useEffect to run everytime the productId changes
     useEffect(() => {
         if (productId && productId !== "") fetchProductDetail();
+        return () => {
+            dispatch(removeSelectedProduct())
+        }
     }, [productId]);
 
     return (
