@@ -2,11 +2,13 @@
 import { combineReducers } from "redux"; //from the redux core
 
 //import the reducers you created
-import { productReducer } from "./productReducer";
+import { productReducer, selectedProductReducer } from "./productReducer";
 
+//now combine all reducers into the reducers const
 export const reducers = combineReducers ({
     //just for now
     allProducts: productReducer,
+    product: selectedProductReducer,
 });
 
 //export default reducers;
