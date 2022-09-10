@@ -5,20 +5,30 @@ import { useSelector } from "react-redux"; //A hook to access the redux store st
 const ProductComponent = () => {
     const products = useSelector((state) => state.allProducts.products);
     //destructure products
-    //const { id, title } = products[0];
-    return (
-        <div className="four column wide">
-            <div className="ui link cards">
-                <div className="card">
-                    <div className="image">
+    //const { id, title } = products[0]; now removed 
+    //products being an array, we'll use a map to display all products
+    const renderList = products.map((product) => {
+        //destructure into constituents for display
+        const { id, title, image, price, category } = product;
+        return (
+            <div className="four column wide" key={id}>
+                <div className="ui link cards">
+                    <div className="card">
+                        <div className="image">
+                            <img src={image} alt={title} />
+                        </div>
                         <div className="content">
-                            {/* <div className="header">{title}</div> */}
+                            <div className="header">{title}</div>
+                            <div className="meta price">$ {price}</div> 
+                            <div className="meta">{category}</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    });
+
+    return <>{renderList}</>;
 };
 
 export default ProductComponent;
