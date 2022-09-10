@@ -11,7 +11,7 @@ import { selectedProduct } from "../redux/actions/productActions";
 const ProductDetail = () => {
     const { productId } = useParams();
     //console.log(productId);
-    
+
     //for dispatch action: dispatch function reference
     const dispatch = useDispatch();
 
@@ -27,6 +27,11 @@ const ProductDetail = () => {
         //Now let's dispatch the action
         dispatch(selectedProduct(response.data));
     };
+
+    //Call the fetchProductDetail, & we want the useEffect to run everytime the productId changes
+    useEffect(() => {
+        if (productId && productId !== "") fetchProductDetail();
+    }, [productId])
 
     return (
         <div>
